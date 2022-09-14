@@ -4,7 +4,7 @@ const { execSync } = require("child_process");
 
 console.log("===Inicializando Projeto===");
 
-execSync(`npm init -y && git init`, (error, stdout, stderr) => {
+execSync(`npm init -y`, (error, stdout, stderr) => {
   if (error) {
     console.log(`error: ${error.message}`);
     return;
