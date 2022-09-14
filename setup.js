@@ -1,31 +1,40 @@
 #! /usr/bin/env node
 
-const { exec } = require("child_process");
-const path = require("path");
+const { execSync } = require("child_process");
 
-console.log("===Inicializando projeto===");
+console.log("===Inicializando Projeto===");
 
-exec(
-  `yarn init -y && git init --prefix ${path.resolve(process.cwd())}`,
+execSync(`npm init -y && git init`, (error, stdout, stderr) => {
+  if (error) {
+    console.log(`error: ${error.message}`);
+    return;
+  }
+  if (stderr) {
+    console.log(`stderr: ${stderr}`);
+  }
+});
+
+console.log("===Instalando dependências===");
+
+execSync(
+  `npm install express express-async-errors cors dotenv`,
   (error, stdout, stderr) => {
     if (error) {
-      console.log(`error: ${error.message}`);
+      console.log(`error: ${error.stack}`);
       return;
     }
     if (stderr) {
       console.log(`stderr: ${stderr}`);
     }
-    console.log("==Projeto iniciado==");
   }
 );
 
-console.log("===Instalando dependências do projeto===");
+console.log("===Instalando dependências de desenvolvimento===");
 
-exec(
-  `yarn add express express-async-errors cors dotenv --prefix ${path.resolve(
-    process.cwd()
-  )}`,
+execSync(
+  `npm install typescript ts-node nodemon eslint prettier eslint-config-airbnb-base eslint-config-airbnb-typescript eslint-plugin-import eslint-plugin-prettier @types/cors @types/express @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser -D`,
   (error, stdout, stderr) => {
+    console.log("===Instalando dependências de desenvolvimento do projeto===");
     if (error) {
       console.log(`error: ${error.message}`);
       return;
@@ -33,40 +42,20 @@ exec(
     if (stderr) {
       console.log(`stderr: ${stderr}`);
     }
-    console.log("==Depêndencias instaladas==");
-  }
-);
-
-console.log("===Instalando dependências de desenvolvimento do projeto===");
-
-exec(
-  `yarn add typescript ts-node nodemon eslint prettier eslint-config-airbnb-base eslint-config-airbnb-typescript eslint-plugin-import eslint-plugin-prettier @types/cors @types/express @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser --prefix ${path.resolve(
-    process.cwd()
-  )}`,
-  (error, stdout, stderr) => {
-    if (error) {
-      console.log(`error: ${error.message}`);
-      return;
-    }
-    if (stderr) {
-      console.log(`stderr: ${stderr}`);
-    }
-    console.log("==Depêndencias de desenvolvimento instaladas==");
   }
 );
 
 console.log("===Apagando setup===");
 
-exec(
-  `rm setup.js --prefix ${path.resolve(process.cwd())}`,
-  (error, stdout, stderr) => {
-    if (error) {
-      console.log(`error: ${error.message}`);
-      return;
-    }
-    if (stderr) {
-      console.log(`stderr: ${stderr}`);
-    }
-    console.log("==Tudo Pronto==");
+execSync(`rm setup.js`, (error, stdout, stderr) => {
+  console.log("===Apagando setup===");
+  if (error) {
+    console.log(`error: ${error.message}`);
+    return;
   }
-);
+  if (stderr) {
+    console.log(`stderr: ${stderr}`);
+  }
+});
+
+console.log("===Tudo Pronto===");
