@@ -17,7 +17,7 @@ execSync(`npm init -y && git init`, (error, stdout, stderr) => {
 console.log("===Instalando dependências===");
 
 execSync(
-  `npm install express express-async-errors cors dotenv`,
+  `npm install express express-async-errors cors dotenv @prisma/client`,
   (error, stdout, stderr) => {
     if (error) {
       console.log(`error: ${error.stack}`);
@@ -32,7 +32,7 @@ execSync(
 console.log("===Instalando dependências de desenvolvimento===");
 
 execSync(
-  `npm install typescript ts-node nodemon eslint prettier eslint-config-airbnb-base eslint-config-airbnb-typescript eslint-plugin-import eslint-plugin-prettier @types/cors @types/express @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser -D`,
+  `npm install typescript ts-node nodemon prisma eslint prettier eslint-config-airbnb-base eslint-config-airbnb-typescript eslint-plugin-import eslint-plugin-prettier @types/cors @types/express @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser -D`,
   (error, stdout, stderr) => {
     console.log("===Instalando dependências de desenvolvimento do projeto===");
     if (error) {
