@@ -1,7 +1,7 @@
 # Node-Express-TS-Template
 
 *This is a Node project template, using express and Typescript.*
-##Usage:
+## Usage:
 ### 1 - In your shell, get to the project folder.
 
 ### 2 - Run the following command:
