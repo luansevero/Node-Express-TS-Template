@@ -32,9 +32,7 @@ execSync(
 console.log("===Instalando dependências de desenvolvimento===");
 
 execSync(
-  `npm install typescript ts-node nodemon prisma eslint prettier jest ts-jest eslint-config-airbnb-base eslint-config-airbnb-typescript 
-    eslint-plugin-import eslint-plugin-prettier @types/cors @types/express @types/node @typescript-eslint/eslint-plugin 
-    @typescript-eslint/parser @types/jest -D`,
+  `npm install typescript ts-node nodemon prisma eslint prettier jest ts-jest eslint-config-airbnb-base eslint-config-airbnb-typescript eslint-plugin-import eslint-plugin-prettier @types/cors @types/express @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser @types/jest -D`,
   (error, stdout, stderr) => {
     if (error) {
       console.error(`error: ${error.message}`);
