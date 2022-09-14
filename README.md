@@ -1,6 +1,6 @@
 <div align="center">
-  <a href="https://github.com/Jbarezzi/Node-Express-TS-Template
-    <img src="https://cdn-icons-png.flaticon.com/512/5968/5968381.png" alt="TypeScriptLogo" width="100">
+  <a href="https://github.com/Jbarezzi/Node-Express-TS-Template">
+    <img src="https://cdn-icons-png.flaticon.com/512/5968/5968381.png"  alt="TypeScriptLogo" width="100">
   </a>
 
   <h3 align="center">Node Project Template</h3>
